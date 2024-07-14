@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+  syncuserplaylist:
+    image: daveotic/syncuserplaylist:latest
+    container_name: syncuserplaylist
+    environment:
+      - PLEX_URL=<plex url>
+      - PLEX_TOKEN=<plex token>
+      - PLAYLIST_LIST=<list of playlist to sync> # format playlist1,playlist2 if blank will do all.
+      - USER_LIST=<list of users to sync to> # format user1,user2 if blank will do all. Admin is not needed.
+      - SYNC_USER_CREATED_PLAYLIST=<0 or 1> # 1 to sync a playlist from a user to the admin playlist. 1 is default
+      - RUN_AS_TEST=<0 or 1> # 1 to run as test 0 is default
+      - TIME_BETWEEN_RUNS=<any number of seconds between runs> # default is 1 second between runs.
+    restart: unless-stopped

@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+  syncuserplaylist:
+    image: daveotic/syncuserplaylist:latest
+    container_name: syncuserplaylist
+    environment:
+      - PLEX_URL=http://192.158.1.38:32400
+      - PLEX_TOKEN=YOURTOKENVALUEHERE
+      - PLAYLIST_LIST=playlist1,playlist2
+      - USER_LIST=user1,user2
+      - SYNC_USER_CREATED_PLAYLIST=1
+      - RUN_AS_TEST=0
+      - TIME_BETWEEN_RUNS=0
+    restart: unless-stopped
